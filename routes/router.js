@@ -1,8 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const indexController = require("../controller/indexController.js");
+const adminController = require("../controller/adminController.js");
 const upload = require('../config/multer'); // Adjust the path accordingly
 
-//index
-router.get('/', indexController.index);
-router.get('/product', indexController.product);
+
+
+
+
+
+//admin
+router.get('/admin', adminController.admin);
+router.get('/admin/manage-products', adminController.manageProducts);
+router.post('/admin/manage-products', upload.single('productImage'), adminController.addProduct);
+router.get('/admin/manage-users', adminController.manageUsers);
+router.post('/admin/manage-products/delete/:id', adminController.deleteProduct);
+
+//user
+
+
+
+
+module.exports = router;
