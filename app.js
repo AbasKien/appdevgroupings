@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require('express');
 const app = express();
 const routes = require('./routes/router.js');
+const session= require ('express-session');
 
 
 // Set up the view engine
